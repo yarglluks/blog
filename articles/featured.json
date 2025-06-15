@@ -1,0 +1,20 @@
+[
+    {
+        "id": "arpanet-birth",
+        "title": "The Birth of ARPANET",
+        "date": "2025-06-01",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800",
+        "excerpt": "How the first internet network was created",
+        "tags": ["history", "networks"],
+        "content": "In 1969, the first node of ARPANET was installed..."
+    },
+    {
+        "id": "first-browser",
+        "title": "WorldWideWeb: The First Browser",
+        "date": "2025-06-05",
+        "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800",
+        "excerpt": "The browser that started it all",
+        "tags": ["browsers", "web"],
+        "content": "Tim Berners-Lee created the first web browser..."
+    }
+]
