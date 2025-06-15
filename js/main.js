@@ -134,6 +134,11 @@ function loadPostDetail() {
                 return;
             }
 
+            // Update breadcrumb and make it more descriptive
+            const currentPage = document.getElementById('current-page');
+            currentPage.textContent = post.title;
+            currentPage.setAttribute('title', post.title); // Add tooltip for long titles
+
             document.getElementById('post-content').innerHTML = `
                 <img src="${post.image}" alt="${post.title}">
                 <h1>${post.title}</h1>
