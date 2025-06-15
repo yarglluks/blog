@@ -6,7 +6,8 @@
         "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800",
         "excerpt": "How the first internet network was created",
         "tags": ["history", "networks"],
-        "content": "In 1969, the first node of ARPANET was installed..."
+        "content": "In 1969, the first node of ARPANET was installed...",
+        "featured": true
     },
     {
         "id": "first-browser",
@@ -15,6 +16,27 @@
         "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800",
         "excerpt": "The browser that started it all",
         "tags": ["browsers", "web"],
-        "content": "Tim Berners-Lee created the first web browser..."
+        "content": "Tim Berners-Lee created the first web browser...",
+        "featured": true
+    },
+    {
+        "id": "tcp-ip-protocol",
+        "title": "TCP/IP: The Internet Protocol",
+        "date": "2025-06-10",
+        "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800",
+        "excerpt": "The backbone of internet communications",
+        "tags": ["networks", "protocols"],
+        "content": "TCP/IP became the standard protocol...",
+        "featured": false
+    },
+    {
+        "id": "dot-com-bubble",
+        "title": "The Dot-Com Bubble",
+        "date": "2025-06-15",
+        "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800",
+        "excerpt": "The rise and fall of the first web boom",
+        "tags": ["history", "business"],
+        "content": "During the late 1990s...",
+        "featured": false
     }
 ]
