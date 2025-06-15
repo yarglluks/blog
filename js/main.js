@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Load featured posts
 function loadFeaturedPosts() {
-    fetch('../articles.json')
+    fetch('/articles.json')  // Changed from '../articles.json'
         .then(response => response.json())
         .then(posts => {
             const container = document.getElementById('featured-posts');
@@ -38,7 +38,7 @@ function loadFeaturedPosts() {
 
 // Load latest posts
 function loadLatestPosts() {
-    fetch('../articles.json')
+    fetch('/articles.json')  // Changed from '../articles.json'
         .then(response => response.json())
         .then(posts => {
             const container = document.getElementById('latest-posts');
@@ -57,7 +57,7 @@ function loadLatestPosts() {
 
 // Load all blog posts
 function loadBlogPosts() {
-    fetch('../articles.json')
+    fetch('/articles.json')  // Changed from '../articles.json'
         .then(response => response.json())
         .then(posts => {
             const container = document.getElementById('blog-posts');
@@ -124,7 +124,7 @@ function loadPostDetail() {
         return;
     }
 
-    fetch('../articles.json')
+    fetch('/articles.json')  // Changed from '../articles.json'
         .then(response => response.json())
         .then(posts => {
             const post = posts.find(p => p.id === postId);
