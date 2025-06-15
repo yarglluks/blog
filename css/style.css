@@ -122,7 +122,7 @@ footer {
     border: 1px solid var(--gray);
 }
 
-/* Post Detail */
+/* Post Detail Styles */
 .post-detail {
     max-width: 800px;
     margin: 2rem auto;
@@ -132,6 +132,32 @@ footer {
 .post-detail img {
     width: 100%;
     height: auto;
+    margin-bottom: 1rem;
+}
+
+.post-detail h1 {
+    margin-bottom: 1rem;
+}
+
+.post-detail .meta {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.post-detail .tags {
+    margin-top: 0.5rem;
+}
+
+.post-detail .tag {
+    background: var(--gray);
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+.post-detail .content {
+    line-height: 1.8;
 }
 
 /* Timeline */

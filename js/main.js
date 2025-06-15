@@ -45,7 +45,7 @@ function loadLatestPosts() {
         .catch(error => console.error('Error loading posts:', error));
 }
 
-// Initialize both featured and latest posts on home page
+// Initialize pages based on current URL
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('featured-posts')) {
         loadFeaturedPosts();
@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (document.getElementById('blog-posts')) {
         loadBlogPosts();
+    }
+
+    // Add this new condition for post detail page
+    if (document.getElementById('post-content')) {
+        loadPostDetail();
     }
 });
 
@@ -117,6 +122,49 @@ function loadBlogPosts() {
             }
         })
         .catch(error => console.error('Error loading posts:', error));
+}
+
+// Add this new function to load individual post
+function loadPostDetail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    
+    if (!postId) {
+        document.getElementById('post-content').innerHTML = '<p>Post not found</p>';
+        return;
+    }
+
+    fetch('articles/featured.json')
+        .then(response => response.json())
+        .then(posts => {
+            const post = posts.find(p => p.id === postId);
+            
+            if (!post) {
+                document.getElementById('post-content').innerHTML = '<p>Post not found</p>';
+                return;
+            }
+
+            document.getElementById('post-content').innerHTML = `
+                <img src="${post.image}" alt="${post.title}">
+                <h1>${post.title}</h1>
+                <div class="meta">
+                    <time datetime="${post.date}">${formatDate(post.date)}</time>
+                    <div class="tags">
+                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+                    </div>
+                </div>
+                <div class="content">
+                    ${post.content}
+                </div>
+            `;
+
+            // Update page title
+            document.title = `${post.title} - IPCOW`;
+        })
+        .catch(error => {
+            console.error('Error loading post:', error);
+            document.getElementById('post-content').innerHTML = '<p>Error loading post</p>';
+        });
 }
 
 // Create a post card element
