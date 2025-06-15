@@ -1,0 +1,74 @@
+.blog {
+    padding: 2rem;
+    background: var(--light-gray);
+}
+.blog__controls {
+    padding: 1rem 2rem;
+    background: var(--gray);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end; /* Align controls to the right */
+    gap: 1rem;
+}
+
+.blog__search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blog__search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.blog__filter {
+    display: flex;
+    gap: 1rem;
+}
+
+.blog__filter-select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+.blog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.blog__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem;
+}
+
+.blog__pagination-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary);
+    background: none;
+    color: var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.blog__pagination-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.blog__pagination-button--active {
+    background: var(--primary);
+    color: white;
+}

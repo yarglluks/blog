@@ -1,0 +1,121 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    gap: 24px;
+    padding: 2rem;
+}
+
+@media (min-width: 800px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1600px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (min-width: 800px) {
+    .card {
+        max-width: 380px;
+    }
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card__content {
+    padding: 1.5rem;
+}
+
+.card__title {
+    font-family: var(--display-font);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+    line-height: 1.4;
+}
+
+.card__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card__date {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.card__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.card__tag {
+    background: var(--gray);
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+.card__excerpt {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: gap 0.3s ease;
+}
+
+.card__link:hover {
+    gap: 0.75rem;
+}
+
+.card__link::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.card__link:hover::after {
+    transform: translateX(4px);
+}

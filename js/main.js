@@ -114,7 +114,7 @@ function loadBlogPosts() {
         .catch(error => console.error('Error loading posts:', error));
 }
 
-// Add this new function to load individual post
+// Update post detail rendering
 function loadPostDetail() {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('id');
@@ -140,15 +140,15 @@ function loadPostDetail() {
             currentPage.setAttribute('title', post.title); // Add tooltip for long titles
 
             document.getElementById('post-content').innerHTML = `
-                <img src="${post.image}" alt="${post.title}">
-                <h1>${post.title}</h1>
-                <div class="meta">
-                    <time datetime="${post.date}">${formatDate(post.date)}</time>
-                    <div class="tags">
-                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+                <img class="post__image" src="${post.image}" alt="${post.title}">
+                <h1 class="post__title">${post.title}</h1>
+                <div class="post__meta">
+                    <time class="post__date" datetime="${post.date}">${formatDate(post.date)}</time>
+                    <div class="post__tags">
+                        ${post.tags.map(tag => `<span class="post__tag">${tag}</span>`).join(' ')}
                     </div>
                 </div>
-                <div class="content">
+                <div class="post__content">
                     ${post.content}
                 </div>
             `;
@@ -165,22 +165,22 @@ function loadPostDetail() {
 // Create a post card element
 function createPostCard(post) {
     const card = document.createElement('article');
-    card.className = 'post-card';
+    card.className = 'card';
     
     card.innerHTML = `
-        <img src="${post.image}" alt="${post.title}">
-        <div class="post-content">
-            <h3 class="post-title">${post.title}</h3>
-            <div class="post-meta">
-                <time class="post-date" datetime="${post.date}">
+        <img class="card__image" src="${post.image}" alt="${post.title}">
+        <div class="card__content">
+            <h3 class="card__title">${post.title}</h3>
+            <div class="card__meta">
+                <time class="card__date" datetime="${post.date}">
                     ${formatDate(post.date)}
                 </time>
             </div>
-            <div class="post-tags">
-                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            <div class="card__tags">
+                ${post.tags.map(tag => `<span class="card__tag">${tag}</span>`).join('')}
             </div>
-            <p class="post-excerpt">${post.excerpt}</p>
-            <a href="post.html?id=${post.id}" class="read-more">Read Article</a>
+            <p class="card__excerpt">${post.excerpt}</p>
+            <a href="post.html?id=${post.id}" class="card__link">Read Article</a>
         </div>
     `;
     

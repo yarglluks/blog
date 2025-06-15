@@ -7,41 +7,43 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-brand">IPCOW</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html" class="active">About</a>
+    <nav class="nav">
+        <div class="nav__brand">IPCOW</div>
+        <div class="nav__links">
+            <a href="index.html" class="nav__link">Home</a>
+            <a href="blog.html" class="nav__link">Blog</a>
+            <a href="about.html" class="nav__link nav__link--active">About</a>
         </div>
     </nav>
 
-    <main class="about-content">
-        <section class="author">
-            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400" alt="Author">
-            <h1>About IPCOW</h1>
-            <p>Documenting the history and evolution of the Internet and World Wide Web.</p>
+    <main class="about">
+        <section class="about__header">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400" 
+                 alt="Author" 
+                 class="about__image">
+            <h1 class="about__title">About IPCOW</h1>
+            <p class="about__description">Documenting the history and evolution of the Internet and World Wide Web.</p>
         </section>
 
         <section class="timeline">
-            <h2>Key Moments in Web History</h2>
-            <div class="timeline-item">
-                <span>1969</span>
-                <p>ARPANET Created</p>
+            <h2 class="timeline__title">Key Moments in Web History</h2>
+            <div class="timeline__item">
+                <span class="timeline__year">1969</span>
+                <div class="timeline__content">ARPANET Created</div>
             </div>
-            <div class="timeline-item">
-                <span>1989</span>
-                <p>Tim Berners-Lee Invents the World Wide Web</p>
+            <div class="timeline__item">
+                <span class="timeline__year">1989</span>
+                <div class="timeline__content">Tim Berners-Lee Invents the World Wide Web</div>
             </div>
-            <div class="timeline-item">
-                <span>1993</span>
-                <p>Mosaic Browser Released</p>
+            <div class="timeline__item">
+                <span class="timeline__year">1993</span>
+                <div class="timeline__content">Mosaic Browser Released</div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 IPCOW</p>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2025 IPCOW</p>
     </footer>
 </body>
 </html>
