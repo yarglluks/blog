@@ -60,6 +60,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Load all blog posts
+function loadBlogPosts() {
+    fetch('articles/featured.json')
+        .then(response => response.json())
+        .then(posts => {
+            const container = document.getElementById('blog-posts');
+            const filterTag = document.getElementById('filter-tag');
+            
+            // Populate tags dropdown
+            const tags = [...new Set(posts.flatMap(post => post.tags))];
+            tags.forEach(tag => {
+                const option = document.createElement('option');
+                option.value = tag;
+                option.textContent = tag;
+                filterTag.appendChild(option);
+            });
+            
+            // Load all posts initially
+            posts.forEach(post => {
+                container.appendChild(createPostCard(post));
+            });
+            
+            // Add search functionality
+            const search = document.getElementById('search');
+            if (search) {
+                search.addEventListener('input', () => {
+                    const query = search.value.toLowerCase();
+                    container.innerHTML = '';
+                    
+                    const filtered = posts.filter(post => 
+                        post.title.toLowerCase().includes(query) ||
+                        post.excerpt.toLowerCase().includes(query)
+                    );
+                    
+                    filtered.forEach(post => {
+                        container.appendChild(createPostCard(post));
+                    });
+                });
+            }
+            
+            // Add tag filtering
+            if (filterTag) {
+                filterTag.addEventListener('change', () => {
+                    const selectedTag = filterTag.value;
+                    container.innerHTML = '';
+                    
+                    const filtered = selectedTag ? 
+                        posts.filter(post => post.tags.includes(selectedTag)) :
+                        posts;
+                    
+                    filtered.forEach(post => {
+                        container.appendChild(createPostCard(post));
+                    });
+                });
+            }
+        })
+        .catch(error => console.error('Error loading posts:', error));
+}
+
 // Create a post card element
 function createPostCard(post) {
     const card = document.createElement('article');
