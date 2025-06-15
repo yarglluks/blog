@@ -6,9 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
         loadFeaturedPosts();
     }
     
+    // Load latest posts if we're on the home page
+    if (document.getElementById('latest-posts')) {
+        loadLatestPosts();
+    }
+    
     // Load blog posts if we're on the blog page
     if (document.getElementById('blog-posts')) {
         loadBlogPosts();
+    }
+
+    // Load post detail if we're on a post page
+    if (document.getElementById('post-content')) {
+        loadPostDetail();
     }
 });
 
@@ -32,38 +42,18 @@ function loadLatestPosts() {
         .then(response => response.json())
         .then(posts => {
             const container = document.getElementById('latest-posts');
-            // Sort by date, newest first
-            const sortedPosts = posts.sort((a, b) => 
-                new Date(b.date) - new Date(a.date)
-            );
-            // Take the 3 most recent posts
-            const latestPosts = sortedPosts.slice(0, 3);
+            // Filter out featured posts and sort by date
+            const nonFeaturedPosts = posts.filter(post => !post.featured)
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Take the 3 most recent non-featured posts
+            const latestPosts = nonFeaturedPosts.slice(0, 3);
             latestPosts.forEach(post => {
                 container.appendChild(createPostCard(post));
             });
         })
         .catch(error => console.error('Error loading posts:', error));
 }
-
-// Initialize pages based on current URL
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('featured-posts')) {
-        loadFeaturedPosts();
-    }
-    
-    if (document.getElementById('latest-posts')) {
-        loadLatestPosts();
-    }
-    
-    if (document.getElementById('blog-posts')) {
-        loadBlogPosts();
-    }
-
-    // Add this new condition for post detail page
-    if (document.getElementById('post-content')) {
-        loadPostDetail();
-    }
-});
 
 // Load all blog posts
 function loadBlogPosts() {
