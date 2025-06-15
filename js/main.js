@@ -171,9 +171,16 @@ function createPostCard(post) {
         <img src="${post.image}" alt="${post.title}">
         <div class="post-content">
             <h3 class="post-title">${post.title}</h3>
-            <time datetime="${post.date}">${formatDate(post.date)}</time>
-            <p>${post.excerpt}</p>
-            <a href="post.html?id=${post.id}" class="read-more">Read More</a>
+            <div class="post-meta">
+                <time class="post-date" datetime="${post.date}">
+                    ${formatDate(post.date)}
+                </time>
+            </div>
+            <div class="post-tags">
+                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+            <p class="post-excerpt">${post.excerpt}</p>
+            <a href="post.html?id=${post.id}" class="read-more">Read Article</a>
         </div>
     `;
     
